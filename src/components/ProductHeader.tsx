@@ -1,13 +1,12 @@
 "use client"
 
-import { Box, IconButton } from "@mui/material"
+import { Box, Typography, IconButton } from "@mui/material"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
 import DeleteIcon from "@mui/icons-material/Delete"
 import EditIcon from "@mui/icons-material/Edit"
 import { Product } from "@/types/product"
 import { useRouter } from "next/navigation"
-import { InfoRow } from "./InfoRow"
 
 interface ProductHeaderProps {
   product: Product
@@ -31,7 +30,9 @@ export const ProductHeader = ({
         mb: 2,
       }}
     >
-      <InfoRow label="" value={product.name} variant="h3" />
+      <Typography variant="h3" component="h1">
+        {product.name}
+      </Typography>
       <Box>
         <IconButton
           onClick={() => onToggleLike(product.id)}

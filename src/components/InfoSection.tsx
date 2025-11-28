@@ -1,8 +1,7 @@
 "use client"
 
 import { ReactNode } from "react"
-import { Box, Divider } from "@mui/material"
-import { InfoRow } from "./InfoRow"
+import { Box, Typography, Divider } from "@mui/material"
 
 interface InfoSectionProps {
   title: string
@@ -19,9 +18,9 @@ export const InfoSection = ({
     <>
       {showDivider && <Divider sx={{ my: 2 }} />}
       <Box sx={{ mt: 3 }}>
-        <Box sx={{ mb: 1 }}>
-          <InfoRow label="" value={title} variant="h6" />
-        </Box>
+        <Typography variant="h6" gutterBottom>
+          {title}
+        </Typography>
         {children}
       </Box>
     </>

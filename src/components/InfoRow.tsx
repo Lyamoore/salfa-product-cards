@@ -1,6 +1,11 @@
 "use client"
 
-import { Typography, TypographyProps } from "@mui/material"
+import {
+  Typography,
+  TypographyProps,
+  type SxProps,
+  type Theme,
+} from "@mui/material"
 
 interface InfoRowProps {
   label: string
@@ -19,7 +24,7 @@ export const InfoRow = ({
 }: InfoRowProps) => {
   if (!value) return null
 
-  const sx = truncate
+  const sx: SxProps<Theme> = truncate
     ? {
         overflow: "hidden",
         textOverflow: "ellipsis",

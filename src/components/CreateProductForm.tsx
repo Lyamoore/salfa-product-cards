@@ -2,13 +2,12 @@
 
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Paper, Box, Alert } from "@mui/material"
+import { Paper, Box, Typography, Alert } from "@mui/material"
 import { useRouter } from "next/navigation"
 import { createProductSchema, type CreateProductInput } from "@/utils/schemas"
 import { useProductStore } from "@/store/useProductStore"
 import { FormField } from "./FormField"
 import { FormActions } from "./FormActions"
-import { InfoRow } from "./InfoRow"
 import { GENDER_OPTIONS, FORM_FIELDS } from "@/utils/constants"
 
 export const CreateProductForm = () => {
@@ -50,9 +49,9 @@ export const CreateProductForm = () => {
 
   return (
     <Paper sx={{ p: 4 }}>
-      <Box sx={{ mb: 3 }}>
-        <InfoRow label="" value="Создать персонажа" variant="h4" />
-      </Box>
+      <Typography variant="h4" gutterBottom sx={{ mb: 3 }}>
+        Создать персонажа
+      </Typography>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}>

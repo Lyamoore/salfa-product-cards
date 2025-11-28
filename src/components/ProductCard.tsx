@@ -2,7 +2,14 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { Card, CardMedia, CardContent, IconButton, Box } from "@mui/material"
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+  IconButton,
+  Box,
+} from "@mui/material"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
 import DeleteIcon from "@mui/icons-material/Delete"
@@ -59,16 +66,9 @@ export const ProductCard = ({ product }: { product: Product }) => {
         />
 
         <CardContent sx={{ position: "relative", height: 200, pb: 6 }}>
-          <Box
-            sx={{
-              mb: 1,
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-            }}
-          >
-            <InfoRow label="" value={product.name} variant="h6" />
-          </Box>
+          <Typography variant="h6" component="div" gutterBottom noWrap>
+            {product.name}
+          </Typography>
 
           <Box
             sx={{
