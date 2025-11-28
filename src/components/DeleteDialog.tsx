@@ -1,6 +1,7 @@
 "use client"
 
-import { Dialog, DialogActions, DialogTitle, Button } from "@mui/material"
+import { Dialog, DialogActions, DialogTitle } from "@mui/material"
+import { AppButton } from "./AppButton"
 
 interface DeleteDialogProps {
   open: boolean
@@ -19,10 +20,12 @@ export const DeleteDialog = ({
     <Dialog open={open} onClose={onClose} disableScrollLock>
       <DialogTitle>{title}</DialogTitle>
       <DialogActions>
-        <Button onClick={onClose}>Отмена</Button>
-        <Button color="error" onClick={onConfirm} autoFocus>
+        <AppButton onClick={onClose} variant="secondary">
+          Отмена
+        </AppButton>
+        <AppButton onClick={onConfirm} variant="danger" autoFocus>
           Удалить
-        </Button>
+        </AppButton>
       </DialogActions>
     </Dialog>
   )

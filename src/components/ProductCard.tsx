@@ -2,14 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  IconButton,
-  Box,
-} from "@mui/material"
+import { Card, CardMedia, CardContent, IconButton, Box } from "@mui/material"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
 import DeleteIcon from "@mui/icons-material/Delete"
@@ -65,14 +58,40 @@ export const ProductCard = ({ product }: { product: Product }) => {
           sx={{ objectFit: "contain", backgroundColor: "#f5f5f5" }}
         />
 
-        <CardContent sx={{ position: "relative", minHeight: 140, pb: 6 }}>
-          <Typography variant="h6" component="div" gutterBottom noWrap>
-            {product.name}
-          </Typography>
+        <CardContent sx={{ position: "relative", height: 200, pb: 6 }}>
+          <Box
+            sx={{
+              mb: 1,
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            }}
+          >
+            <InfoRow label="" value={product.name} variant="h6" />
+          </Box>
 
-          <InfoRow label="Дом" value={product.house} />
-          <InfoRow label="Дата рождения" value={product.birth} />
-          <InfoRow label="Актёр" value={product.actor} />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 0.5,
+              maxHeight: 140,
+              overflow: "hidden",
+              maskImage:
+                "linear-gradient(to bottom, black 0%, black 90%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to bottom, black 0%, black 90%, transparent 100%)",
+            }}
+          >
+            <InfoRow label="Дом" value={product.house} />
+            <InfoRow label="Дата рождения" value={product.birth} />
+            <InfoRow label="Актёр" value={product.actor} />
+            <InfoRow label="Пол" value={product.gender} />
+            <InfoRow label="Вид" value={product.species} />
+            <InfoRow label="Происхождение" value={product.ancestry} />
+
+            <InfoRow label="Патронус" value={product.patronus} />
+          </Box>
 
           <Box
             sx={{

@@ -1,10 +1,13 @@
 "use client"
 
-import { Box, Typography, IconButton } from "@mui/material"
+import { Box, IconButton } from "@mui/material"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
 import DeleteIcon from "@mui/icons-material/Delete"
+import EditIcon from "@mui/icons-material/Edit"
 import { Product } from "@/types/product"
+import { useRouter } from "next/navigation"
+import { InfoRow } from "./InfoRow"
 
 interface ProductHeaderProps {
   product: Product
@@ -17,6 +20,8 @@ export const ProductHeader = ({
   onToggleLike,
   onDelete,
 }: ProductHeaderProps) => {
+  const router = useRouter()
+
   return (
     <Box
       sx={{
@@ -26,15 +31,22 @@ export const ProductHeader = ({
         mb: 2,
       }}
     >
-      <Typography variant="h3" component="h1">
-        {product.name}
-      </Typography>
+      <InfoRow label="" value={product.name} variant="h3" />
       <Box>
         <IconButton
           onClick={() => onToggleLike(product.id)}
           color={product.isLiked ? "error" : "default"}
         >
           {product.isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+        </IconButton>
+        <IconButton
+          onClick={() => router.push(`/products/${product.id}/edit`)}
+          sx={{
+            color: "grey.500",
+            "&:hover": { color: "primary.main" },
+          }}
+        >
+          <EditIcon />
         </IconButton>
         <IconButton
           onClick={onDelete}

@@ -26,13 +26,17 @@ export const InfoRow = ({
         whiteSpace: "nowrap",
         mb: 0.5,
       }
-    : { mb: 0.5 }
+    : { mb: 0.5, textAlign: "inherit" }
 
   const color = variant === "body2" ? "text.secondary" : undefined
+  const labelText = label ? `${label}:` : ""
 
   return (
     <Typography variant={variant} color={color} sx={sx}>
-      {bold ? <strong>{label}:</strong> : `${label}:`} {value}
+      {label && bold && <strong>{labelText}</strong>}
+      {label && !bold && labelText}
+      {label ? " " : ""}
+      {value}
     </Typography>
   )
 }

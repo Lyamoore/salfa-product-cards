@@ -8,15 +8,13 @@ import {
   Card,
   CardMedia,
   CardContent,
-  Typography,
-  Button,
   Box,
   Chip,
   Divider,
 } from "@mui/material"
-import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 import { useProductStore } from "@/store/useProductStore"
 import { DeleteDialog } from "@/components/DeleteDialog"
+import { BackButton } from "@/components/BackButton"
 import { InfoRow } from "@/components/InfoRow"
 import { InfoSection } from "@/components/InfoSection"
 import { ProductHeader } from "@/components/ProductHeader"
@@ -46,29 +44,15 @@ export default function ProductDetailPage({
   if (!product) {
     return (
       <Container sx={{ mt: 4, textAlign: "center" }}>
-        <Typography variant="h4">Продукт не найден</Typography>
-        <Button
-          variant="contained"
-          startIcon={<ArrowBackIcon />}
-          onClick={() => router.push("/products")}
-          sx={{ mt: 2 }}
-        >
-          Вернуться к списку
-        </Button>
+        <InfoRow label="" value="Продукт не найден" variant="h4" />
+        <BackButton href="/products" label="Вернуться к списку" />
       </Container>
     )
   }
 
   return (
     <Container sx={{ mt: 4, mb: 4 }}>
-      <Button
-        variant="outlined"
-        startIcon={<ArrowBackIcon />}
-        onClick={() => router.push("/products")}
-        sx={{ mb: 3 }}
-      >
-        Назад к списку
-      </Button>
+      <BackButton href="/products" />
 
       <Card sx={{ maxWidth: 800, mx: "auto" }}>
         <CardMedia

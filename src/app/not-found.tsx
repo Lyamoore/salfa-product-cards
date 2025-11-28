@@ -5,7 +5,7 @@ import { AppButton } from "@/components/AppButton"
 import { InfoRow } from "@/components/InfoRow"
 import { useRouter } from "next/navigation"
 
-export default function Home() {
+export default function NotFound() {
   const router = useRouter()
 
   return (
@@ -21,18 +21,25 @@ export default function Home() {
           gap: 3,
         }}
       >
-        <InfoRow label="" value="Добро пожаловать!" variant="h2" bold />
+        <Box
+          sx={{
+            mb: 2,
+          }}
+        >
+          <InfoRow label="" value="404" variant="h1" bold />
+        </Box>
+        <InfoRow label="" value="Страница не найдена" variant="h4" bold />
         <InfoRow
           label=""
-          value="Просмотрите наш каталог персонажей Гарри Поттера"
-          variant="h5"
+          value="К сожалению, запрашиваемая страница не существует."
+          variant="body1"
         />
         <AppButton
           variant="primary"
-          onClick={() => router.push("/products")}
+          onClick={() => router.push("/")}
           sx={{ mt: 2 }}
         >
-          Перейти к персонажам
+          Вернуться на главную
         </AppButton>
       </Box>
     </Container>
