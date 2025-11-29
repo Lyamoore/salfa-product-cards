@@ -9,13 +9,13 @@ export const FORM_FIELDS = [
   {
     name: "name",
     label: "Имя",
-    placeholder: "Например, Гарри Поттер",
+    placeholder: "Например, Harry Potter",
     required: true,
   },
   {
     name: "species",
     label: "Вид",
-    placeholder: "Например, Human, Wizard",
+    placeholder: "Например, Human",
     required: true,
   },
     {
